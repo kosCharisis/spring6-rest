@@ -39,12 +39,14 @@ public class TeacherRestController {
         return new ResponseEntity(teachersPage, HttpStatus.OK);
     }
 
-    @PostMapping("/teachers/save")
+    @PostMapping(value="/teachers/save")
     public ResponseEntity<TeacherReadOnlyDTO> saveTeacher(
             @Valid @RequestPart(name = "teacher")TeacherInsertDTO teacherInsertDTO,
-            @RequestPart("amkaFile") MultipartFile amkaFile,
-            BindingResult bindingResult) throws AppObjectInvalidArgumentException, ValidationException, AppObjectAlreadyExists, AppServerException {
+            @Nullable @RequestPart("amkaFile") MultipartFile amkaFile,
+            BindingResult bindingResult)
+            throws AppObjectInvalidArgumentException, ValidationException, AppObjectAlreadyExists, AppServerException {
 
+        //check if there are validation errors
         if (bindingResult.hasErrors()) {
             throw new ValidationException(bindingResult);
         }

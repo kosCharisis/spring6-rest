@@ -39,7 +39,7 @@ public class TeacherSpecification {
             if (amka == null || amka.isBlank()) {
                 return criteriaBuilder.isTrue(criteriaBuilder.literal(true));
             }
-            Join<Teacher, PersonalInfo> personalInfo = root.join("personalIfo");
+            Join<Teacher, PersonalInfo> personalInfo = root.join("personalInfo");
             return criteriaBuilder.equal(personalInfo.get("isActive"), amka);
         });
     }
