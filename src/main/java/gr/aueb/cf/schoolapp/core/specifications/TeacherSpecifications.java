@@ -1,4 +1,4 @@
-package gr.aueb.cf.schoolapp.specifications;
+package gr.aueb.cf.schoolapp.core.specifications;
 
 import gr.aueb.cf.schoolapp.model.PersonalInfo;
 import gr.aueb.cf.schoolapp.model.Teacher;
